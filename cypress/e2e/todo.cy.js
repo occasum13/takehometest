@@ -52,4 +52,51 @@ describe('Todo API', () => {
       })
     })
   })
+
+  context('GET /todos/id', () => {
+
+    it('should return status 200', () => {
+      cy.getTodoById(1).then((response) => {
+        expect(response.status).to.eq(200)
+      })
+    })
+
+    it('should return the requested id', () => {
+      cy.getTodoById(25).then((response) => {
+        expect(response.body.id).to.eq(25)
+      })
+    })
+    
+    it('should contain required keys', () => {
+      cy.getTodoById(1).then((response) => {
+          expect(response.body).to.have.all.keys(
+            'userId',
+            'id',
+            'title',
+            'completed'
+          )
+      })
+    })
+
+    it('should validate property types', () => {
+      cy.getTodoById(1).then((response) => {
+          expect(response.body.userId).to.be.a('number')
+          expect(response.body.id).to.be.a('number')
+          expect(response.body.title).to.be.a('string')
+          expect(response.body.completed).to.be.a('boolean')
+      })
+    })
+
+    it('should return 404 for non-existing id', () => {
+        cy.getTodoById(999999).then((response) => {
+          expect(response.status).to.eq(404)
+        })
+      })
+
+    it('should return 404 for invalid id format', () => {
+      cy.getTodoById('abc').then((response) => {
+          expect(response.status).to.eq(404)
+      })
+    })
+  })
 })

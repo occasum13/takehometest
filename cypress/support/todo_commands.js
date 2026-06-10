@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('getTodos', () => {
+  return cy.request({
+    method: 'GET',
+    url: '/todos'
+  })
+})
+
+Cypress.Commands.add('getTodoById', (id) => {
+  return cy.request({
+    method: 'GET',
+    url: `/todos/${id}`,
+    failOnStatusCode: false
+  })
+})
