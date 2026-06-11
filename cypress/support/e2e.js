@@ -14,5 +14,5 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './todo_commands'
-import './eeglobal_commands'
+import './api/todo_commands'
+import './ui/eeglobal_commands'
