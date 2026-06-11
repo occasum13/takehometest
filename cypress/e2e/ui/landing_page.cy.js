@@ -4,7 +4,7 @@ import CheckoutPageLocators from "../../support/api/locators/checkout_locators";
 
 describe('UI e2e testing', () => {
 
-    const baseUrl = Cypress.env('eeglobalUrl')
+    const baseUrl = Cypress.env('uiBaseUrl')
 
     context('Landing Page - Mobile', () => {
 

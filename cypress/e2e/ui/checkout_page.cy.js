@@ -4,7 +4,7 @@ import CheckoutPageLocators from "../../support/api/locators/checkout_locators";
 
 describe('Checkout Page', () => {
 
-    const baseUrl = Cypress.env('eeglobalUrl'+'/product')
+    const baseUrl = Cypress.env('uiBaseUrl'+'/product')
 
     context('Checkout Page - Mobile', () => {
         beforeEach(() => {
