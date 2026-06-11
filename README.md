@@ -17,7 +17,10 @@ Installation:
 - Clone the repo
 - Navigate to project
 - Run "npm i"
-- Run "npm run test"
+
+Running tests:
+- API: "npm run cy:api"
+- UI: "npm run cy:ui"
 
 Test Coverage:
 
