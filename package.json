@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy:api": "cypress run --spec cypress/e2e/todo.cy.js",
-    "cy:ui": "cypress run --spec cypress/e2e/eeglobal.cy.js"
+    "cy:api": "cypress run --spec cypress/e2e/api/*.cy.js",
+    "cy:ui": "cypress run --spec cypress/e2e/ui/*.cy.js"
   },
   "keywords": [],
   "author": "",
