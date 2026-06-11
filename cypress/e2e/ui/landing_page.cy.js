@@ -2,15 +2,18 @@ import LandingPageLocators from "../../support/api/locators/landing_locators";
 import ProductPageLocators from "../../support/api/locators/product_locators";
 import CheckoutPageLocators from "../../support/api/locators/checkout_locators";
 
-describe('UI e2e testing', () => {
+describe('Landing Page', () => {
 
     const baseUrl = Cypress.env('uiBaseUrl')
 
-    context('Landing Page - Mobile', () => {
+    beforeEach(() => {
+        cy.visit(baseUrl)
+    })
 
-        beforeEach(() => {
+    context('Mobile', () => {
+
+        before(() => {
             cy.viewport('iphone-x') 
-            cy.visit(baseUrl)
         })
         
         it('should successfuly checkout the product', () => {
@@ -43,11 +46,10 @@ describe('UI e2e testing', () => {
         })
     })
 
-    context('Landing Page - Desktop', () => {
+    context('Desktop', () => {
 
-        beforeEach(() => {
+        before(() => {
             cy.viewport(1280, 720) 
-            cy.visit(baseUrl)
         })
         
         it('should successfuly checkout the product', () => {

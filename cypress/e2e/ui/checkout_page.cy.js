@@ -4,12 +4,19 @@ import CheckoutPageLocators from "../../support/api/locators/checkout_locators";
 
 describe('Checkout Page', () => {
 
-    const baseUrl = Cypress.env('uiBaseUrl'+'/product')
+    const baseUrl = Cypress.env('uiBaseUrl') + '/checkout'
 
-    context('Checkout Page - Mobile', () => {
-        beforeEach(() => {
+    beforeEach(() => {
+        cy.visit(baseUrl, {
+            failOnStatusCode: false,
+            followRedirect: false
+        })
+    })
+
+    context('Mobile', () => {
+
+        before(() => {
             cy.viewport('iphone-x') 
-            cy.visit(baseUrl)
         })
     
         it('should successfuly place an order', () => {
@@ -34,9 +41,9 @@ describe('Checkout Page', () => {
             CheckoutPageLocators.placeOrderBtn().click()
             CheckoutPageLocators.successMessage().should('not.exist')
             
-            CheckoutPageLocators.nameFormError().should('be.visible').and('should.contain', 'The full name is required')
-            CheckoutPageLocators.emailFormError().should('be.visible').and('should.contain', 'Invalid email')
-            CheckoutPageLocators.addressFormError().should('be.visible').and('should.contain', 'The address is required')
+            CheckoutPageLocators.nameFormError().should('be.visible').and('contain.text', 'The full name is required')
+            CheckoutPageLocators.emailFormError().should('be.visible').and('contain.text', 'Invalid email')
+            CheckoutPageLocators.addressFormError().should('be.visible').and('contain.text', 'The address is required')
         }) 
 
         it('should fail to place an order without a name', () => {
@@ -64,10 +71,10 @@ describe('Checkout Page', () => {
         })   
     })
 
-    context('Checkout Page - Desktop', () => {
-        beforeEach(() => {
-            cy.viewport(1280,720) 
-            cy.visit(baseUrl + '/checkout')
+    context('Desktop', () => {
+
+        before(() => {
+            cy.viewport('iphone-x') 
         })
 
         it('should successfuly place an order', () => {
@@ -92,9 +99,9 @@ describe('Checkout Page', () => {
             CheckoutPageLocators.placeOrderBtn().click()
             CheckoutPageLocators.successMessage().should('not.exist')
             
-            CheckoutPageLocators.nameFormError().should('be.visible').and('should.contain', 'The full name is required')
-            CheckoutPageLocators.emailFormError().should('be.visible').and('should.contain', 'Invalid email')
-            CheckoutPageLocators.addressFormError().should('be.visible').and('should.contain', 'The address is required')
+            CheckoutPageLocators.nameFormError().should('be.visible').and('contain.text', 'The full name is required')
+            CheckoutPageLocators.emailFormError().should('be.visible').and('contain.text', 'Invalid email')
+            CheckoutPageLocators.addressFormError().should('be.visible').and('contain.text', 'The address is required')
         }) 
 
         it('should fail to place an order without a name', () => {

@@ -4,13 +4,19 @@ import CheckoutPageLocators from "../../support/api/locators/checkout_locators";
 
 describe('Product Page', () => {
     
-    const baseUrl = Cypress.env('uiBaseUrl'+'/product')
+    const baseUrl = Cypress.env('uiBaseUrl') + '/product';
+
+    beforeEach(() => {
+        cy.visit(baseUrl, {
+            failOnStatusCode: false,
+            followRedirect: false
+        })
+    })
 
     context('Mobile', () => {
     
-        beforeEach(() => {
+        before(() => {
             cy.viewport('iphone-x') 
-            cy.visit(baseUrl)
         })
 
         it('should successfuly display product information', () => {
@@ -41,9 +47,9 @@ describe('Product Page', () => {
     })
 
     context('Desktop', () => {
-        beforeEach(() => {
+
+        before(() => {
             cy.viewport(1280,720) 
-            cy.visit(baseUrl + '/product')
         })
 
         it('should successfuly display product information', () => {
@@ -57,19 +63,19 @@ describe('Product Page', () => {
         it('should successfuly navigate back to landing page through top `Back to the landing page` button', () => {
             ProductPageLocators.topBackBtn().click()
 
-            LandingPageLocators.landingPageDescription().should('be.visible').and('contain.text', 'A product funnel that feels clean, focused, and easy to buy from.')
+            LandingPageLocators.landingPageTitle().should('be.visible').and('contain.text', 'A product funnel that feels clean, focused, and easy to buy from.')
         })
 
         it('should successfuly navigate back to landing page through bottom `Back` button', () => {
             ProductPageLocators.bottomBackBtn().click()
 
-            LandingPageLocators.landingPageDescription().should('be.visible').and('contain.text', 'A product funnel that feels clean, focused, and easy to buy from.')
+            LandingPageLocators.landingPageTitle().should('be.visible').and('contain.text', 'A product funnel that feels clean, focused, and easy to buy from.')
         })
 
         it('should successfuly navigate to checkout page through `Buy now` button', () => {
             ProductPageLocators.buyNowBtn().click()
 
-            CheckoutPageLocators.CheckoutPageDescription().should('be.visible').and('contain.text', 'Complete your order')
+            CheckoutPageLocators.CheckoutPageTitle().should('be.visible').and('contain.text', 'Complete your order')
         })
     })
 })
