@@ -2,7 +2,7 @@ TAKE-HOME TEST - João Paulo Assis Gayer.
 
 Overview:
 
-This project contains API automation tests written with Cypress+JS for the JSONPlaceholder todo API.
+This project contains API and E2E automation tests written with Cypress+JS for both JSONPlaceholder todo API and EE Global Website.
 
 Endpoints tested:
 - GET /todos
@@ -21,6 +21,8 @@ Installation:
 
 Test Coverage:
 
+API: 
+
 GET /todos
 - Status code validation
 - Response format validation
@@ -34,6 +36,23 @@ GET /todos/id
 - Status code validation
 - Response format validation
 - Error handling validation
+
+UI:
+
+Landing Page
+- Acessing
+- Validating butons navigation
+
+Product Page
+- Acessing
+- Validating butons navigation
+
+Checkout Page
+- Acessing
+- Validating Form Inputs
+- Validating status messages
+- Validating navigation
+
 
 Project Structure
 cypress

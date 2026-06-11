@@ -7,6 +7,10 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://jsonplaceholder.typicode.com',
+    allowCypressEnv: true,
+    env: {
+      apiBaseUrl: 'https://jsonplaceholder.typicode.com',
+      uiBaseUrl: 'https://eeglobal.github.io/basic-product-funnel-sample',
+    },
   },
 });

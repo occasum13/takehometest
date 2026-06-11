@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "cy:api": "cypress run --spec cypress/e2e/todo.cy.js",
+    "cy:ui": "cypress run --spec cypress/e2e/eeglobal.cy.js"
   },
   "keywords": [],
   "author": "",
