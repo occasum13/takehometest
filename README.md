@@ -4,8 +4,13 @@ Overview:
 This project contains API and E2E automation tests written with Cypress+JS for both JSONPlaceholder API and the EE Global Website.
 
 Endpoints tested:
+    - POST /todos
     - GET /todos
     - GET /todos/id
+    = GET /todos?userId=
+    - PUT /todos/id
+    - PATCH /todos/id
+    - DELETE /todos/id
 
 Pages tested:
     - Landing Page
