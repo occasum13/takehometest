@@ -131,7 +131,7 @@ describe('ToDo API', () => {
     })
   })
 
-  context('PUT /todos/:id', () => {
+  context('PUT /todos/id', () => {
 
     const updatedTodo = {
        id: 1, 
