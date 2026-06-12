@@ -6,7 +6,7 @@ describe('Todo API', () => {
   // Here we have "context" which adds further context to differentiate between tests which are testing what
   context('GET /todos', () => {
 
-    // And this is the test structure, calling a custom command from /cypress/support/todos_commands.js
+    // And this is the test structure, calling a custom command from /cypress/support/api/todo_commands.js
     it('should return status 200', () => {
       cy.getTodos().then((response) => {
           console.log(response)
