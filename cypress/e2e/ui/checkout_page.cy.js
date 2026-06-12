@@ -1,6 +1,6 @@
-import LandingPageLocators from "../../support/api/locators/landing_locators";
-import ProductPageLocators from "../../support/api/locators/product_locators";
-import CheckoutPageLocators from "../../support/api/locators/checkout_locators";
+import LandingPageLocators from "../../support/ui/locators/landing_locators";
+import ProductPageLocators from "../../support/ui/locators/product_locators";
+import CheckoutPageLocators from "../../support/ui/locators/checkout_locators";
 
 describe('Checkout Page', () => {
 

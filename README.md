@@ -2,11 +2,16 @@ TAKE-HOME TEST - João Paulo Assis Gayer.
 
 Overview:
 
-This project contains API and E2E automation tests written with Cypress+JS for both JSONPlaceholder todo API and EE Global Website.
+This project contains API and E2E automation tests written with Cypress+JS for both JSONPlaceholder API and the EE Global Website.
 
 Endpoints tested:
 - GET /todos
 - GET /todos/id
+
+Pages tested:
+- Landing Page
+- Product Page
+- Checkout Page
 
 Tech:
 - Node.js
@@ -57,13 +62,26 @@ Checkout Page
 - Validating navigation
 
 
-Project Structure
-cypress
- ├─ e2e - folder where all the test specs are located
- │   └─ todos.cy.js - test spec file
- ├─ fixtures - additional test data/mocks that we could use if needed
- └─ support - folder where all the custom commands are located
+Project Structure:
 
-cypress.config.js - cypress configs
-package.json - node configs/libraries
-README.md - this file XD
+├─ cypress
+│   └─ e2e -> TEST SPEC FOLDERS
+│   │   └─ api
+│   |   |   └─ todo.cy.js - test spec file
+│   |   └─ ui
+│   |   |   └─ landing_page.cy.js
+│   |   |   └─ product_page.cy.js
+│   |   |   └─ checkout_page.cy.js
+│   ├─ fixtures
+│   └─ support -> CUSTOM COMMANDS & LOCATORS
+│   |   └─ api
+│   |   |   └─ todo_commands.js
+│   |   └─ ui
+│   |   |   └─ locators
+│   |   |   |   └─ checkout_page_locators.js
+│   |   |   |   └─ landing_page_locators.js
+│   |   |   |   └─ product_page_locators.js
+│   |   └─ e2e.js
+│─ cypress.config.js -> CYPRESS CONFIGS
+│─ package.json -> LIBS & SCRIPTS
+│─ README.md -> THIS FILE :)
